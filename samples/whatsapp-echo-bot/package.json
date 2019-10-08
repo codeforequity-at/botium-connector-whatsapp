@@ -1,0 +1,18 @@
+{
+  "name": "whatsapp-echo-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "PORT=5010 WA_ENDPOINT=http://127.0.0.1:5000/v1/messages node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  }
+}
