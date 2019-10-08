@@ -1,0 +1,54 @@
+{
+  "name": "botium-connector-whatsapp",
+  "version": "0.0.2",
+  "description": "Botium Connector for Whatsapp Webhooks",
+  "main": "dist/botium-connector-whatsapp-cjs.js",
+  "module": "dist/botium-connector-whatsapp-es.js",
+  "bin": {
+    "botium-waproxy-cli": "./bin/botium-waproxy-cli.js"
+  },
+  "scripts": {
+    "build": "npm run eslint && rollup -c",
+    "eslint": "eslint index.js src/**/*.js bin/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeforequity-at/botium-connector-whatsapp.git"
+  },
+  "author": "Botium GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforequity-at/botium-core/issues"
+  },
+  "homepage": "https://github.com/codeforequity-at/botium-core",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "rollup": "^1.23.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "ioredis": "^4.14.1",
+    "lodash": "^4.17.15",
+    "randomatic": "^3.1.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "uuid": "^3.3.3",
+    "yargs": "^14.2.0"
+  }
+}
