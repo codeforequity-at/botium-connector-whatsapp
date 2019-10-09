@@ -4,4 +4,3 @@ Echo
 Reserve a car pls
 
 #bot
-You said: Reserve a car pls

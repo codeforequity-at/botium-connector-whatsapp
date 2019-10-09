@@ -24,18 +24,20 @@ const setupEndpoints = ({ app, endpoint, redisurl, ...rest }) => {
   redis.on('connect', () => {
     debug(`Redis connected to ${util.inspect(redisurl)}`)
   })
-  endpoint = (endpoint || '/') + 'v1/messages'
+  const messagesEndpoint = (endpoint || '/') + 'v1/messages'
 
-  app.get('/', (req, res) => {
-    res.status(200).send(`Botium Whatsapp Business API emulator</br>POST messages to ${endpoint}`).end()
-  })
-
-  app.post(endpoint, (req, res) => {
+  app.post(messagesEndpoint, (req, res) => {
     res.status(200).end()
 
     if (req.body) {
       processEvent(req.body, { redis, ...rest })
     }
+  })
+  app.get(`${endpoint || '/'}*`, (req, res) => {
+    res.status(200).send(`Botium Whatsapp Business API emulator</br>POST messages to ${messagesEndpoint}`).end()
+  })
+  app.post((endpoint || '/'), (req, res) => {
+    res.status(200).send({}).end()
   })
 }
 
