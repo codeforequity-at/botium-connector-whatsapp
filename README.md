@@ -92,6 +92,20 @@ Botium setup is ready, you can begin to write your [BotiumScript](https://github
 
 __Important: The Botium Whatsapp Business API emulator has to be running when Botium is started. Otherwise, Botium scripts will fail to receive any input or output messages from your chatbot!__
 
+## Running the Samples
+
+The folder _samples/iambotium_ is an example for a simple Whatsapp Webhook chatbot - it is connected to a **I Am Botium** chatbot endpoint doing some simple smalltalk. Start the webhook:
+
+    > cd samples/iambotium && npm install && npm start
+
+Afterwards, start the Botium Whatsapp Business API emulator:
+
+    > botium-waproxy-cli start
+
+And finally, you can find the Botium test project in _samples/simple_, to run a simple test case
+
+    > cd samples/simple && npm install && npm test
+
 ## Supported Capabilities
 
 Set the capability __CONTAINERMODE__ to __whatsapp__ to activate this connector.
