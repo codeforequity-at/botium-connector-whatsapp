@@ -1,12 +1,9 @@
 {
   "name": "botium-connector-whatsapp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Botium Connector for Whatsapp Webhooks",
   "main": "dist/botium-connector-whatsapp-cjs.js",
   "module": "dist/botium-connector-whatsapp-es.js",
-  "bin": {
-    "botium-waproxy-cli": "./bin/botium-waproxy-cli.js"
-  },
   "scripts": {
     "build": "npm run eslint && rollup -c",
     "eslint": "eslint index.js"
