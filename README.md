@@ -29,25 +29,6 @@ It can be used as any other Botium connector with all Botium Stack components:
 * a __Redis__ instance (Cloud hosted free tier for example from [redislabs](https://redislabs.com/) will do as a starter)
 * a __project directory__ on your workstation to hold test cases and Botium configuration
 
-## Install and Run the Botium Whatsapp Business API emulator
-
-The Botium Whatsapp Business API emulator is responsible for the receiving part, listens for messages from your webhook, and puts them into Redis. It is running outside of Botium as a background service.
-
-You have to configure your Whatsapp webhook to deliver the outbound messages to the Botium Whatsapp Business API emulator. 
-
-Installation with NPM:
-
-    > npm install -g botium-connector-whatsapp
-    > botium-waproxy-cli start --help
-
-There are several options required for running the service:
-
-_--port_: Local port to listen
-
-_--endpoint_: endpoint (url part after the port ...) (optional, default _/_)
-
-_--redisurl_: Redis connection url
-
 ## Install Botium and Whatsapp Connector
 
 When using __Botium CLI__:
@@ -83,28 +64,33 @@ Open the file _botium.json_ in your working directory and add the webhook url an
     "Capabilities": {
       "PROJECTNAME": "<whatever>",
       "CONTAINERMODE": "whatsapp",
-      "WHATSAPP_WEBHOOKURL": "..."
+      "WHATSAPP_WEBHOOKURL": "...",
+      "SIMPLEREST_INBOUND_REDISURL": "redis://127.0.0.1:6379"
     }
   }
 }
 ```
 Botium setup is ready, you can begin to write your [BotiumScript](https://github.com/codeforequity-at/botium-core/wiki/Botium-Scripting) files.
 
-__Important: The Botium Whatsapp Business API emulator has to be running when Botium is started. Otherwise, Botium scripts will fail to receive any input or output messages from your chatbot!__
+__Important: The `inbound-proxy` command has to be started with Botium CLI. Otherwise, Botium scripts will fail to receive any input or output messages from your chatbot!__
 
 ## Running the Samples
 
-The folder _samples/iambotium_ is an example for a simple Whatsapp Webhook chatbot - it is connected to a **I Am Botium** chatbot endpoint doing some simple smalltalk. Start the webhook:
+Install botium-core as peerDependency 
 
-    > cd samples/iambotium && npm install && npm start
+    > npm install --no-save botium-core
 
-Afterwards, start the Botium Whatsapp Business API emulator:
+Afterwards in the folder _samples/whatsapp-echo-bot_ is an example for a simple Whatsapp Webhook chatbot - it is connected to a **I Am Botium** chatbot endpoint doing some simple smalltalk. Start the webhook:
 
-    > botium-waproxy-cli start
+    > cd samples/whatsapp-echo-bot && npm install && npm start
+    
+Finally, navigate into the samples/simple and run `npm install`, start the inbound proxy server 
+and run the test itself with the following commands:
 
-And finally, you can find the Botium test project in _samples/simple_, to run a simple test case
-
-    > cd samples/simple && npm install && npm test
+     > cd samples/simple
+     > npm install
+     > npm run inbound
+     > npm test
 
 ## Supported Capabilities
 
@@ -117,11 +103,6 @@ The URL of your Whatsapp Business API webhook.
 The Whatsapp Id of the user.
 
 Optional. By default, a unique id is generated.
-
-### WHATSAPP_REDISURL
-The url of your Redis instance - for example _redis://127.0.0.1:6379_.
-
-Or a Redis options object - see [here](https://github.com/luin/ioredis#connect-to-redis)
 
 ## Open Issues and Restrictions
 

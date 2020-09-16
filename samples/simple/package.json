@@ -2,11 +2,12 @@
   "name": "techdemo",
   "version": "1.0.0",
   "scripts": {
-    "test": "mocha spec"
+    "test": "mocha spec",
+    "inbound": "botium-cli inbound-proxy --verbose"
   },
   "botium": {
     "convodirs": [
-      "spec\\convo"
+      "spec/convo"
     ],
     "expandConvos": true,
     "expandUtterancesToConvos": false
@@ -14,6 +15,7 @@
   "devDependencies": {
     "mocha": "latest",
     "botium-bindings": "latest",
+    "botium-cli": "latest",
     "botium-connector-whatsapp": "../../"
   }
 }
