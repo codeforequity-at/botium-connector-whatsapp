@@ -3,7 +3,8 @@
     "Capabilities": {
       "PROJECTNAME": "Botium Project Whatsapp",
       "CONTAINERMODE": "whatsapp",
-      "WHATSAPP_WEBHOOKURL": "http://127.0.0.1:5010/webhook"
+      "WHATSAPP_WEBHOOKURL": "http://127.0.0.1:5010/webhook",
+      "SIMPLEREST_INBOUND_REDISURL": "redis://127.0.0.1:6379"
     }
   }
 }

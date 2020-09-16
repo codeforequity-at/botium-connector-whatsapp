@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "PORT=5010 WA_ENDPOINT=http://127.0.0.1:5000/v1/messages node server.js"
+    "start": "PORT=5010 WA_ENDPOINT=http://127.0.0.1:45100 node server.js"
   },
   "keywords": [],
   "author": "",
